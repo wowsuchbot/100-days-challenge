@@ -10,7 +10,8 @@
 
 | Day | Date | Repo | What | Status |
 |-----|------|------|------|--------|
-| 001 | - | - | - | 🚧 Planned |
+| 001 | 2026-03-15 → 2026-03-16 | wowsuchbot/such-gallery | Unbundled from monorepo, SQLite setup, build fixes, running locally | ✅ Complete |
+| 001.5 | 2026-03-15 | Infrastructure | PM2 for webhook server, improved Qdrant systemd with watchdog | ✅ Complete |
 
 ---
 
