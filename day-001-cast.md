@@ -5,17 +5,16 @@
 ```
 Day 001 of 100 🚀
 
-such-gallery unbundled from monorepo → running locally.
+such-gallery unbundled from monorepo → deployed to https://such.gallery.
 
 What changed:
 - Extracted @repo/db schema → local Drizzle + SQLite
 - Replaced @cryptoart/unified-indexer → direct subgraph queries  
 - Fixed Node.js ESM process import errors
 - PM2 + systemd watchdog for process supervision
+- Deployed to production via Caddy + Hostinger
 
-Status: ✅ Running at http://localhost:3001
-
-Next: Deploy to production, configure Neynar/Alchemy keys.
+Status: ✅ Live at https://such.gallery
 
 Repo: https://github.com/wowsuchbot/such-gallery
 
