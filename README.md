@@ -2,7 +2,7 @@
 
 **Goal:** Ship a new app/tool every day for 100 days to build DevRel credibility and public narrative.
 
-**Started:** March 15, 2026
+**Started:** March 16, 2026
 
 ---
 
@@ -10,9 +10,10 @@
 
 | Day | Date | Repo | What | Status |
 |-----|------|------|------|--------|
-| 001 | 2026-03-15 → 2026-03-16 | wowsuchbot/such-gallery | Unbundled from monorepo, SQLite setup, build fixes, deployed to https://such.gallery | ✅ Complete |
-| 001.5 | 2026-03-15 | Infrastructure | PM2 for webhook server, improved Qdrant systemd with watchdog | ✅ Complete |
-| 001.5 | 2026-03-15 | Infrastructure | PM2 for webhook server, improved Qdrant systemd with watchdog | ✅ Complete |
+| 001 | 2026-03-16 | wowsuchbot/such-gallery | Unbundled from monorepo, SQLite setup, build fixes, deployed to https://such.gallery | ✅ Complete |
+| 001 | 2026-03-16 | Infrastructure | PM2 for webhook server with watchdog | ✅ Complete |
+| 001 | 2026-03-16 | Infrastructure | Qdrant systemd with watchdog | ✅ Complete |
+| 002 | 2026-03-17 | wowsuchbot/coach | Dashboard refactor — type-based hierarchy, domain pages, GTD flow | ✅ Complete |
 
 ---
 
