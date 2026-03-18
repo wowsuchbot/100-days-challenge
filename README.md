@@ -14,6 +14,7 @@
 | 001 | 2026-03-16 | Infrastructure | PM2 for webhook server with watchdog | ✅ Complete |
 | 001 | 2026-03-16 | Infrastructure | Qdrant systemd with watchdog | ✅ Complete |
 | 002 | 2026-03-17 | wowsuchbot/coach | Dashboard refactor — type-based hierarchy, domain pages, GTD flow | ✅ Complete |
+| 003 | 2026-03-18 | wowsuchbot/openclaw-tutorials | Added a structured tutorial series covering Gateway fundamentals, Session management, etc. | ✅ Complete |
 
 ---
 
