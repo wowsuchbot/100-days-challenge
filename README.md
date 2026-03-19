@@ -15,32 +15,15 @@
 | 001 | 2026-03-16 | Infrastructure | Qdrant systemd with watchdog | ✅ Complete |
 | 002 | 2026-03-17 | wowsuchbot/coach | Dashboard refactor — type-based hierarchy, domain pages, GTD flow | ✅ Complete |
 | 003 | 2026-03-18 | wowsuchbot/openclaw-tutorials | Added a structured tutorial series covering Gateway fundamentals, Session management, etc. | ✅ Complete |
+| 003 | 2026-03-18 | private code  | "@suchbot glitch this" trigger, with image hosting, eviction and anti-abuse strategy | ✅ Complete |
 
 ---
 
-## Categories
-
-### Farcaster Utilities
-Cast analytics, mention tracker, thread unroller, engagement tools
-
-### Cryptoart Tools
-Price alerts, featured artist picker, collection stats, minting helpers
-
-### OpenClaw Skills
-New agents, integrations, automation patterns
-
-### CLI Tools
-Developer productivity, data scraping, formatting
-
-### Web Micro-Apps
-Landing pages, calculators, dashboards
-
----
 
 ## Daily Ritual
 
 1. **Build** (1-2 hrs max): Small, focused tool
-2. **Ship:** Public repo + clear README
+2. **Ship:** Public repo + clear README, gh-pages or equivalent
 3. **Post:** Cast about what/why/how
 4. **Track:** Update this README
 
@@ -48,9 +31,7 @@ Landing pages, calculators, dashboards
 
 ## Rules
 
-- Each day = new repo (or grouped by category)
-- Repo names: `100-days/farcaster-001`, `100-days/cryptoart-002`, etc.
-- Always include: README, installation, usage example
+- Ship an app or new featureset every day
 - Keep scope small — 1-2 hours is ideal
 - Skip days are OK, but keep streak visible
 
