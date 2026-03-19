@@ -15,7 +15,8 @@
 | 001 | 2026-03-16 | Infrastructure | Qdrant systemd with watchdog | ✅ Complete |
 | 002 | 2026-03-17 | wowsuchbot/coach | Dashboard refactor — type-based hierarchy, domain pages, GTD flow | ✅ Complete |
 | 003 | 2026-03-18 | wowsuchbot/openclaw-tutorials | Added a structured tutorial series covering Gateway fundamentals, Session management, etc. | ✅ Complete |
-| 003 | 2026-03-18 | private code  | "@suchbot glitch this" trigger, with image hosting, eviction and anti-abuse strategy | ✅ Complete |
+| 003 | 2026-03-18 | webhook api (local/private)  | "@suchbot glitch this" trigger, with image hosting, eviction and anti-abuse strategy | ✅ Complete |
+| 004 | 2026-03-18 | webhook api (local/private)  | "@suchbot generate [prompt]" generates an AI image based on the prompt. Uses the same api server, image hosting and anti-abuse strategy as glitch-this| 👷♂️In Progress |
 
 ---
 
