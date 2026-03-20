@@ -393,6 +393,53 @@ router.get('/credits', async (req, res) => {
 
 ---
 
+## Progress
+
+### Completed ✅
+- [2026-03-20 14:35 UTC] Credit database (credits.js) — SQLite implementation with FID, credits, totals
+- [2026-03-20 14:35 UTC] x402 payment webhook (x402-webhook.js) — Receives x402 payments, adds credits to DB
+- [2026-03-20 14:35 UTC] Webhook index.js — Added credits check to generate endpoint
+- [2026-03-20 14:35 UTC] Webhook index.js — Added GET /credits endpoint for balance queries
+- [2026-03-20 14:35 UTC] SERVICES.md — Documented credits system and new webhook endpoints
+- [2026-03-20 14:35 UTC] 100-days README — Day 5 added (marked In Progress)
+
+### Issues 🚧
+- [2026-03-20 15:01 UTC] Webhook server DOWN after restart — health endpoint not responding on port 3001
+  - PM2 shows process running but not accepting connections
+  - Need to diagnose and restart webhook
+  - Last successful log: 12:33:47 (before restart at 14:33)
+
+### Next Steps
+
+1. **Fix webhook server** — Debug why it's not accepting connections after restart
+   - Check error logs: `/root/.openclaw/services/webhook/error.log`
+   - Verify Node.js version and dependencies
+   - Restart webhook with fresh process
+
+2. **Test credits database** — Verify SQLite operations work
+   - Set test credits for FID 4905
+   - Test getCredits(), deductCredits(), addCredits()
+
+3. **Test /credits endpoint** — Verify balance queries work
+   - GET http://localhost:3001/credits?fid=4905
+   - Expect JSON response with fid, credits, totals
+
+4. **Test x402 webhook** — Simulate payment webhook
+   - POST to /webhook/x402-payment with test payload
+   - Verify signature verification
+   - Verify credits added to database
+
+5. **Build mini app UI** — Create bot-website pages for credits
+   - `/root/.openclaw/services/bot-website/src/pages/credits/index.astro`
+   - `/root/.openclaw/services/bot-website/src/pages/credits/purchase.astro`
+   - Display current balance, buy credits options
+
+6. **Test end-to-end flow** — Full integration test
+   - Test credits check, payment, deduction, and generate
+   - Verify mini app displays updated balance
+
+---
+
 ## Files to Create/Modify
 
 ### New Files
