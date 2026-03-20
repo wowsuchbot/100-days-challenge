@@ -4,19 +4,22 @@
 
 **Started:** March 16, 2026
 
+> **Note:** This README is the single source of truth for challenge progress. No separate day files needed.
+
 ---
 
 ## Progress
 
-| Day | Date | Repo | What | Status |
-|-----|------|------|------|--------|
-| 001 | 2026-03-16 | wowsuchbot/such-gallery | Unbundled from monorepo, SQLite setup, build fixes, deployed to https://such.gallery | ✅ Complete |
-| 001 | 2026-03-16 | Infrastructure | PM2 for webhook server with watchdog | ✅ Complete |
-| 001 | 2026-03-16 | Infrastructure | Qdrant systemd with watchdog | ✅ Complete |
-| 002 | 2026-03-17 | wowsuchbot/coach | Dashboard refactor — type-based hierarchy, domain pages, GTD flow | ✅ Complete |
-| 003 | 2026-03-18 | wowsuchbot/openclaw-tutorials | Added a structured tutorial series covering Gateway fundamentals, Session management, etc. | ✅ Complete |
-| 003 | 2026-03-18 | webhook api (local/private)  | "@suchbot glitch this" trigger, with image hosting, eviction and anti-abuse strategy | ✅ Complete |
-| 004 | 2026-03-18 | webhook api (local/private)  | "@suchbot generate [prompt]" generates an AI image based on the prompt. Uses the same api server, image hosting and anti-abuse strategy as glitch-this| 👷♂️In Progress |
+| Day | Date | What | Status |
+|-----|------|------|--------|
+| 001 | 2026-03-16 | such-gallery: Unbundled from monorepo, SQLite setup, build fixes, deployed to https://such.gallery | ✅ Complete |
+| 001 | 2026-03-16 | Infrastructure: PM2 for webhook server with watchdog | ✅ Complete |
+| 001 | 2026-03-16 | Infrastructure: Qdrant systemd with watchdog | ✅ Complete |
+| 002 | 2026-03-17 | coach: Dashboard refactor — type-based hierarchy, domain pages, GTD flow | ✅ Complete |
+| 003 | 2026-03-18 | openclaw-tutorials: Structured tutorial series (Gateway, sessions, memory, sub-agents) | ✅ Complete |
+| 003 | 2026-03-18 | webhook: Glitch trigger with image hosting, eviction & anti-abuse strategy | ✅ Complete |
+| 004 | 2026-03-18 → 2026-03-20 | suchbot webhook overhaul: PM2 services architecture, keyring-proxy for ERC-8004, glitch & generate pipelines | ✅ Complete |
+| 005 | 2026-03-20 | suchbot credits mini app: Farcaster mini app + x402 payments for @suchbot generate credit system | ⏳ In Progress |
 
 ---
 
@@ -25,8 +28,7 @@
 
 1. **Build** (1-2 hrs max): Small, focused tool
 2. **Ship:** Public repo + clear README, gh-pages or equivalent
-3. **Post:** Cast about what/why/how
-4. **Track:** Update this README
+3. **Track:** Update this README
 
 ---
 
@@ -35,6 +37,7 @@
 - Ship an app or new featureset every day
 - Keep scope small — 1-2 hours is ideal
 - Skip days are OK, but keep streak visible
+- This README is the single source of truth — all progress tracked here
 
 ---
 
