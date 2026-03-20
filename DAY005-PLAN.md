@@ -404,37 +404,69 @@ router.get('/credits', async (req, res) => {
 - [2026-03-20 14:35 UTC] 100-days README — Day 5 added (marked In Progress)
 
 ### Issues 🚧
-- [2026-03-20 15:01 UTC] Webhook server DOWN after restart — health endpoint not responding on port 3001
-  - PM2 shows process running but not accepting connections
-  - Need to diagnose and restart webhook
-  - Last successful log: 12:33:47 (before restart at 14:33)
+
+#### [RESOLVED] Webhook server DOWN — Fixed 2026-03-20 16:50
+- **Problem:** Webhook server not accepting connections on port 3001, stuck in restart loop
+- **Root cause:** Multiple issues:
+  1. Missing `sqlite3` dependency in webhook/package.json
+  2. Mixed CommonJS/ES6 imports (files using `require()` with `"type": "module"` in package.json)
+  3. Duplicate `__dirname` declarations causing syntax errors
+  4. Missing x402-webhook.js file
+- **Fix applied:**
+  1. Installed `sqlite3` dependency
+  2. Converted all ES6 imports to CommonJS (cors, fs, path, winston, etc.)
+  3. Renamed x402-webhook.js → x402-webhook.cjs
+  4. Fixed CreditsDB import syntax (removed `.CreditsDB` from require)
+  5. Moved credits.js and x402-webhook.cjs to webhook directory
+  6. Added `return;` statements after specific handlers to prevent catch-all response
+- **Status:** ✅ Webhook UP and responding, health check working, credits endpoint working
+
+#### [CURRENT BUG] Webhook receives Farcaster webhooks but doesn't send replies — 2026-03-20 17:00
+- **Problem:** Webhook IS receiving Farcaster cast webhooks (logs show "Received webhook") but NOT sending replies/acknowledgments back to Farcaster
+- **Symptoms:**
+  - Webhook logs show: `{"fid":1231002024,"hash":"testhash789","level":"info","message":"Received webhook","timestamp":"...","type":"cast.created"}`
+  - No "Reply sent" logs from `generateReply()` or `fc_cast.sh` script
+  - Webhook returns `{"success":true}` for all casts without processing
+  - User cast mentioning @suchbot receives no acknowledgment/reply
+- **Root cause identified:** 
+  - Webhook handler has a catch-all `res.json({ success: true })` at the end that ALWAYS runs, overriding any specific handler returns
+  - We added `return;` statements to specific handlers, but PM2 is running OLD cached code
+  - The webhook receives Farcaster casts but doesn't actually call `generateReply()`, `processGlitch()`, or other response functions
+- **What's broken:**
+  - No glitch replies
+  - No generate image replies
+  - No mention replies
+  - No credit check responses
+- **Current status:** Webhook running, receiving webhooks, but not acting on them
 
 ### Next Steps
 
-1. **Fix webhook server** — Debug why it's not accepting connections after restart
-   - Check error logs: `/root/.openclaw/services/webhook/error.log`
-   - Verify Node.js version and dependencies
-   - Restart webhook with fresh process
+1. **[CRITICAL] Fix webhook handler to process Farcaster casts and send replies** — IMMEDIATE
+   - Webhook IS receiving your Farcaster casts (logs confirm "Received webhook")
+   - Need to fix the webhook handler to actually call response functions
+   - Likely PM2 is running cached/old version of index.cjs — need to ensure new code is running
+   - Remove or fix the catch-all `res.json({ success: true })` at the end that prevents responses
+   - Verify `generateReply()`, `processGlitch()`, and other handlers are being called
 
-2. **Test credits database** — Verify SQLite operations work
+2. **Test credits database** — Verify SQLite operations work (lower priority since webhook is broken)
    - Set test credits for FID 4905
    - Test getCredits(), deductCredits(), addCredits()
 
-3. **Test /credits endpoint** — Verify balance queries work
+3. **Test /credits endpoint** — Verify balance queries work (lower priority)
    - GET http://localhost:3001/credits?fid=4905
    - Expect JSON response with fid, credits, totals
 
-4. **Test x402 webhook** — Simulate payment webhook
+4. **Test x402 webhook** — Simulate payment webhook (lower priority)
    - POST to /webhook/x402-payment with test payload
    - Verify signature verification
    - Verify credits added to database
 
-5. **Build mini app UI** — Create bot-website pages for credits
+5. **Build mini app UI** — Create bot-website pages for credits (post-webhook fix)
    - `/root/.openclaw/services/bot-website/src/pages/credits/index.astro`
    - `/root/.openclaw/services/bot-website/src/pages/credits/purchase.astro`
    - Display current balance, buy credits options
 
-6. **Test end-to-end flow** — Full integration test
+6. **Test end-to-end flow** — Full integration test (post-webhook fix)
    - Test credits check, payment, deduction, and generate
    - Verify mini app displays updated balance
 
