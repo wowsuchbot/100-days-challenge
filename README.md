@@ -20,6 +20,7 @@
 | 003 | 2026-03-18 | webhook: Glitch trigger with image hosting, eviction & anti-abuse strategy | ✅ Complete |
 | 004 | 2026-03-18 → 2026-03-20 | suchbot webhook overhaul: PM2 services architecture, keyring-proxy for ERC-8004, glitch & generate pipelines | ✅ Complete |
 | 005 | 2026-03-20 | suchbot credits mini app: Farcaster mini app + x402 payments for @suchbot generate credit system. Credit database (credits.js), x402 payment webhook (x402-webhook.js), GET /credits endpoint, updated /generate to check credits before processing | ⏳ In Progress |
+| 006 | 2026-03-25 | suchbot webhook + image pipeline: Fixed webhook processing for Farcaster mentions/replies, improved image generation and glitch service integration | ⏳ In Progress |
 
 ---
 
